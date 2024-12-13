@@ -1,0 +1,30 @@
+.banner {
+    background-color: red;
+    width: 100%;
+    padding: 1%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.logoContainer {
+    width: auto;
+    align-self: flex-start;
+}
+
+.buttonList {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin: 0.5rem;
+}
+.buttonContainer {
+    padding: 0.5rem;
+    width: auto;
+    align-self: flex-end;
+}
