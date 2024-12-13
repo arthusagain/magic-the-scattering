@@ -21,6 +21,9 @@ export default function Banner() {
                     <BannerButton target="/">Home</BannerButton>
                 </li>
                 <li className={style.buttonContainer}>
+                    <BannerButton target="/card-create">Create a Card</BannerButton>
+                </li>
+                <li className={style.buttonContainer}>
                     <BannerButton target="/about">About</BannerButton>
                 </li> 
                 <li className={style.buttonContainer}> 

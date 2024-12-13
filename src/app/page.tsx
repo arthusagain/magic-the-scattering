@@ -1,5 +1,4 @@
 'use client'
-import { createContext } from 'react'
 import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -14,11 +13,12 @@ import { CardInfo } from "../pages/CardInfo";
 import { CardCreate } from "../pages/CardCreate";
 import { NoPage } from "../pages/NoPage";
 
+
 export default function Home() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />} >
           <Route index element={<Homepage />} />
           <Route path="auth" element={<Auth />} />
           <Route path="about" element={<About />} />
