@@ -1,14 +1,35 @@
+'use client'
+import { createContext } from 'react'
 import React from 'react';
-import Banner from ".././components/Banner";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "../pages/Layout";
+import { Homepage } from "../pages/Home";
+import { Auth } from "../pages/Auth";
+import { About } from "../pages/About";
+import { Search } from "../pages/Search";
+import { Profile } from "../pages/Profile";
+import { EditProfile } from "../pages/EditProfile";
+import { CardInfo } from "../pages/CardInfo";
+import { CardCreate } from "../pages/CardCreate";
+import { NoPage } from "../pages/NoPage";
+
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
-      <Banner />
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-      </footer>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Homepage />} />
+          <Route path="auth" element={<Auth />} />
+          <Route path="about" element={<About />} />
+          <Route path="search" element={<Search />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="edit-profile" element={<EditProfile />} />
+          <Route path="card-info" element={<CardInfo />} />
+          <Route path="card-create" element={<CardCreate />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

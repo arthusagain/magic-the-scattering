@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import style from "./banner.module.scss";
 import Image from "next/image";
+import BannerButton from "../BannerButton";
 
 export default function Banner() {
     return (
-        <header className={style.banner}>
+        <div className={style.banner}>
             <div className={style.logoContainer}>
                 <Image
                     className="dark:invert"
@@ -16,10 +17,16 @@ export default function Banner() {
                 />
             </div>
             <ul className={style.buttonList}>
-                <li className={style.buttonContainer}>Home</li>
-                <li className={style.buttonContainer}>Projetos</li> 
-                <li className={style.buttonContainer}>Contato</li>
+                <li className={style.buttonContainer}>
+                    <BannerButton target="/">Home</BannerButton>
+                </li>
+                <li className={style.buttonContainer}>
+                    <BannerButton target="/about">About</BannerButton>
+                </li> 
+                <li className={style.buttonContainer}> 
+                    <BannerButton target="/random">Random Card</BannerButton>
+                </li>
             </ul>
-        </header>
+        </div>
     );
 }
