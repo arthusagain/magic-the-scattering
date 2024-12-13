@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: rgb(255, 218, 214);
+    --background: white;
     --foreground: #ededed;
   }
 }
@@ -18,4 +18,55 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  height: 100vh;
+  color: black;
+  background-color: rgb(255, 218, 214);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 15% 0 15%;
+  padding: 4rem;
+}
+
+.main-container h1{
+  text-align: center;
+  align-self: center;
+  height: 5%;
+}
+
+.filter-container {
+  align-self: center;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 5%;
+  width: 100%;
+}
+.filter-container input{
+  border-radius: 4px;
+  outline: black;
+  box-shadow: #171717;
+  width: 80%;
+  padding: 0.2rem;
+}
+.filter-container button{
+  border-radius: 4px;
+  width: auto;
+  background-color: silver;
+  padding: 0.2rem;
+}
+
+.card-container {
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  justify-content: flex-start;
+  align-items: baseline;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "../pages/Layout";
-import { Homepage } from "../pages/Home";
+import { Homepage } from "../pages/Homepage";
 import { Auth } from "../pages/Auth";
 import { About } from "../pages/About";
 import { Search } from "../pages/Search";
