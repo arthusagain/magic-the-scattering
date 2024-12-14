@@ -13,9 +13,9 @@ export const Layout = ({children}: Props) => {
                 <header>
                     <Banner />
                 </header>
-                <div>
+                <main className="main-container">
                     <Outlet />
-                </div>
+                </main>
             </div>
         </>
     )

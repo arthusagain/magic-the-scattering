@@ -3,7 +3,7 @@ import React from "react";
 
 export const Homepage = () => {
     return (
-        <main className="main-container">
+        <>
             <h1>Homepage</h1>
             <div className="filter-container">
                 <label htmlFor="search">Search:</label>
@@ -24,6 +24,6 @@ export const Homepage = () => {
                 <CardInstance />
                 <CardInstance />
             </div>
-        </main>
+        </>
     )
 }
