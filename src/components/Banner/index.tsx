@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./banner.module.scss";
 import Image from "next/image";
 import BannerButton from "../BannerButton";
