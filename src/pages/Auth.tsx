@@ -2,22 +2,46 @@ import React from 'react'
 import Form from "../components/Form";
 
 export const Auth = () => {
-    const formFields = [{
-        label: "Login",
+    const authFields = [{
+        label: "Username: ",
         type: "text",
     },
     {
-        label: "Password",
+        label: "Password: ",
         type: "password",
     }]
 
-    const handleLogin = () => { 
-     //learn firebase auth   
+    const registerFields = [{
+        label: "Email:",
+        type: "text",
+    },{
+        label: "Username:",
+        type: "text",
+    },
+    {
+        label: "Password: ",
+        type: "password",
+    },
+    {
+        label: "Confirm Password: ",
+        type: "password",
+    }]
+
+    const handleLogin = () => {
+        //learn firebase auth   
     }
 
     return (
-        <>
-            <Form fields={formFields} submit={handleLogin} submitText="Login" />
-        </>
+        <div>
+            <div>
+                Sign In
+                <Form fields={authFields} submit={handleLogin} submitText="Sign In" />
+            </div>
+            <div>
+                Register
+                <Form fields={registerFields} submit={handleLogin} submitText="Register" />
+            </div>
+
+        </div>
     )
 }

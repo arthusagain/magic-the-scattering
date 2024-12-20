@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./form.module.scss"
 import { IFormField } from "@/types/formField";
+import FormElement from "./FormElement";
 
 interface Props {
     fields: IFormField[],
@@ -12,7 +13,7 @@ export default function Form({ fields, submit, submitText }: Props) {
         <form>
             <ul>
                 {fields.map(field =>
-                    <li key={field.label}>{field.label}</li>)}
+                    <FormElement key={field.label} field={field}/>)}
             </ul>
             <button onClick={submit}>{submitText}</button>;
         </form>
