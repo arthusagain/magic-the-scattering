@@ -1,6 +1,22 @@
-import { FieldType, IFormField} from "@/types/formField";
+import { FieldType, IFormField } from "@/types/formField";
 
-export default function FormElement({field}: {field: IFormField}) {
+export default function FormElement({ field }: { field: IFormField }) {
+    let compareStat = [
+        "Mana value",
+        "Power",
+        "Toughness",
+        "Loyalty"
+    ]
+    
+    let compareOperator = [
+        "equal to",
+        "less than",
+        "greater than",
+        "less than or equal to",
+        "greater than or equal to",
+        "not equal to"
+    ]
+
     let inputType;
     switch (field.type) {
         case FieldType.text:
@@ -21,12 +37,12 @@ export default function FormElement({field}: {field: IFormField}) {
             inputType = <input type="text" />
             break;
     }
-    
+
     return (
         <li>
             <div>
                 <div>
-                {field.label}
+                    {field.label}
                 </div>
                 <div>
                     {inputType}
