@@ -1,4 +1,4 @@
-import CardInstance from "../components/CardInstance";
+import CardInstance from "../components/Card/CardInstance";
 import React from "react";
 
 export const Homepage = () => {
