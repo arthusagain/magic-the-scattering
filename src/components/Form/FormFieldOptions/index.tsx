@@ -2,9 +2,15 @@ import React from 'react'
 import CompositeLabel from '../CompositeLabel'
 import { ILabel } from '@/types/formField'
 
-export default function FormFieldOptions({labels}: {labels: ILabel[]}) {
+interface Props {
+    id: string,
+    name: string,
+    labels: ILabel[]
+}
+
+export default function FormFieldOptions(props: Props) {
     return (
-        <>{labels.map((label, index) => (
+        <>{props.labels.map((label, index) => (
             <div key={index}>
                 <input type="checkbox" />
                 <CompositeLabel {...label} />

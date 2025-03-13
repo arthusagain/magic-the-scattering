@@ -1,8 +1,14 @@
-export default function FormFieldDropdown( {options}: {options: string[]} ) {
+interface Props {
+    id: string,
+    name: string,
+    options: string[]
+}
+
+export default function FormFieldDropdown( props: Props ) {
     return (
         <div>
             <select>
-                {options.map((option, index) => (
+                {props.options.map((option, index) => (
                     <option key={index}>{option}</option>
                 ))}
             </select>

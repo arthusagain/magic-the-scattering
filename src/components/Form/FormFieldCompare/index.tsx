@@ -1,6 +1,12 @@
 import Dropdown from "../FormFieldDropdown"
 
-export default function FormFieldCompare({comparables}: {comparables: string[]}) {
+interface Props {
+    id: string,
+    name: string,
+    comparables: string[]
+}
+
+export default function FormFieldCompare(props: Props) {
 
     let compareOperator = [
         "equal to",
@@ -10,12 +16,16 @@ export default function FormFieldCompare({comparables}: {comparables: string[]})
         "greater than or equal to",
         "not equal to"
     ]
+    let comparableID = `${props.id}_Comparable`;
+    let operatorID = `${props.id}_Operator`;
+    let comparableName = `${props.name}_Comparable`;
+    let operatorName = `${props.name}_Operator`;
 
     return (
         <div>
-            <Dropdown options={comparables}/>
-            <Dropdown options={compareOperator}/>
-            <input type="number" />
+            <Dropdown id={comparableID} name={comparableName} options={props.comparables}/>
+            <Dropdown id={operatorID} name={operatorName} options={compareOperator}/>
+            <input id ={props.id} name={props.name}  type="number" />
         </div>
     )
 }
