@@ -1,0 +1,22 @@
+.authContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.authContainer * p{
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+}
+
+.signInContainer, .registerContainer {
+    flex: 1;
+    padding: 20px;
+}
+
+.divider {
+    width: 1px;
+    height: 100%;
+    background-color: #ccc;
+    margin: 0 20px;
+}

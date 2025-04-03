@@ -3,7 +3,11 @@ export enum FieldType {
     select,
     checkbox,
     compare,
-    symbol
+    symbol,
+    file
+}
+export function isValidFieldType(testedType: string){
+    return testedType in FieldType;
 }
 
 export enum Comparables {
@@ -14,7 +18,7 @@ export enum Comparables {
 }
 
 export interface IFormField {
-    type: FieldType;
+    type: string;
     label: string;
     context: any;
 }

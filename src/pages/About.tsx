@@ -1,4 +1,4 @@
-export const About = () => {
+const About = () => {
     return (
         <>
             <h1>About Magic: The Scattering</h1>
@@ -7,3 +7,5 @@ export const About = () => {
         </>
     )
 }
+
+export default About;

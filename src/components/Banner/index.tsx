@@ -3,6 +3,7 @@ import style from "./banner.module.scss";
 import Image from "next/image";
 import BannerButton from "../BannerButton";
 
+
 export default function Banner() {
     return (
         <div className={style.banner}>
@@ -19,6 +20,9 @@ export default function Banner() {
             <ul className={style.buttonList}>
                 <li className={style.buttonContainer}>
                     <BannerButton target="/">Home</BannerButton>
+                </li>
+                <li className={style.buttonContainer}>
+                    <BannerButton target="/auth">Log In / Register</BannerButton>
                 </li>
                 <li className={style.buttonContainer}>
                     <BannerButton target="/card-create">Create a Card</BannerButton>

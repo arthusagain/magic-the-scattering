@@ -13,16 +13,16 @@ export default function FormElement(props: Props) {
 
     let inputType;
     switch (props.field.type) {
-        case FieldType.text:
+        case 'text':
             inputType = <input id ={props.id} name={props.name} type={props.field.context}/>
             break;
-        case FieldType.select:
+        case 'select':
             inputType = <Dropdown id ={props.id} name={props.name} options={props.field.context} />
             break;
-        case FieldType.checkbox:
+        case 'checkbox':
             inputType = <input type="checkbox" />
             break;
-        case FieldType.compare:
+        case 'compare':
             inputType = <Compare id ={props.id} name={props.name} comparables={props.field.context} />
         default:
             inputType = <input type="text" />

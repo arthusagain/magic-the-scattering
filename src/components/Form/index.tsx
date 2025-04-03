@@ -8,14 +8,18 @@ interface Props {
     submit: () => void
     submitText: string
 }
+
 export default function Form({ fields, submit, submitText }: Props) {
+    if (!Array.isArray(fields)) {
+        throw new Error(typeof fields);
+    }
     return (
         <form>
             <ul>
                 {fields.map(field =>
-                    <FormElement key={field.label} field={field}/>)}
+                    <FormElement id={field.label} name={field.label} key={field.label} field={field}/>)}
             </ul>
-            <button onClick={submit}>{submitText}</button>;
+            <button onClick={submit}>{submitText}</button>
         </form>
     )
 }

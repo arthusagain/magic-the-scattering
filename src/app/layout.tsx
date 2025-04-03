@@ -2,7 +2,8 @@ import React from 'react';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {db} from "./firebase";
+import { db } from "./firebase";
+import Banner from '@/components/Banner';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,11 @@ export default function RootLayout({
       <body
         className={`font-arial antialiased`}
       >
-        {children}
+        <Banner />
+
+        <div className="main-container">
+          {children}
+        </div>
       </body>
     </html>
   );

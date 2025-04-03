@@ -1,11 +1,11 @@
 import Image from "next/image";
 import style from "./cardinstance.module.scss";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function CardInstance() {
     return (
         <div className={style.card}>
-            <Link to="/card-info">
+            <Link href="/card-info">
                 <div className={style.cardName}>Card Name</div>
                 <div className={style.cardImage}>
                     <Image

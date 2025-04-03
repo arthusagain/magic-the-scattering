@@ -1,0 +1,54 @@
+{
+    "login": {
+        "fields": [
+            {
+                "type": "text",
+                "label": "Email",
+                "context": "email"
+            },
+            {
+                "type": "password",
+                "label": "Password",
+                "context": "password"
+            }
+        ]
+    },
+    "register": {
+        "fields": [
+            {
+                "type": "text",
+                "label": "Email",
+                "context": "email"
+            },
+            {
+                "type": "password",
+                "label": "Password",    
+                "context": "password"
+            },
+            {
+                "type": "password",
+                "label": "Confirm Password",
+                "context": "password"
+            }
+        ]
+    },
+    "newCard": {
+        "fields": [
+            {
+                "type": "text",
+                "label": "Name",
+                "context": "text"
+            },
+            {
+                "type": "text",
+                "label": "Description",
+                "context": "text"
+            },
+            {
+                "type": "file",
+                "label": "Image",
+                "context": ""
+            }
+        ]
+    }
+}

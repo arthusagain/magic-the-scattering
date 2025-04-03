@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export const CardInfo = () => {
+const CardInfo = () => {
     return (
         <>
             <h1>Card Name</h1>
@@ -16,3 +16,5 @@ export const CardInfo = () => {
         </>
     )
 }
+
+export default CardInfo;

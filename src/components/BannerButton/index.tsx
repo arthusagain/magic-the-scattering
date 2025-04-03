@@ -1,6 +1,6 @@
-import React, { Children, useState } from "react";
+import React from "react";
+import Link from 'next/link'
 import style from "./bannerButton.module.scss";
-import { Link } from "react-router-dom";
 
 interface Props{
     children?: React.ReactNode
@@ -9,6 +9,6 @@ interface Props{
 
 export default function BannerButton({children, target} : Props) {
     return (
-        <Link to={target}>{children}</Link>
+        <Link href={target}>{children}</Link>
     )
 }
