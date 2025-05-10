@@ -1,6 +1,10 @@
 'use client'
 import React from 'react';
 import CardInstance from "../components/Card/CardInstance";
+import './firebase';
+
+
+//carregar dados com useEffect?
 
 export default function Home() {
   return (

@@ -1,15 +1,18 @@
-import { FieldType, IFormField } from "@/types/formField";
+import { IFormField } from "@/types/formField";
 import React from "react";
 import Compare from "../FormFieldCompare";
 import Dropdown from "../FormFieldDropdown";
+import { useRef } from 'react';
 
 interface Props {
     id: string,
     name: string,
-    field: IFormField
+    field: IFormField,
+    formId: number
 }
 
 export default function FormElement(props: Props) {
+
 
     let inputType;
     switch (props.field.type) {

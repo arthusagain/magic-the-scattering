@@ -7,7 +7,7 @@
                 "context": "email"
             },
             {
-                "type": "password",
+                "type": "text",
                 "label": "Password",
                 "context": "password"
             }
@@ -21,12 +21,12 @@
                 "context": "email"
             },
             {
-                "type": "password",
+                "type": "text",
                 "label": "Password",    
                 "context": "password"
             },
             {
-                "type": "password",
+                "type": "text",
                 "label": "Confirm Password",
                 "context": "password"
             }

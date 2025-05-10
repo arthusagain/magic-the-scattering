@@ -1,6 +1,8 @@
 const NoPage = () => {
     return (
-        <></>
+        <>
+        <p>oops no page :(</p>
+        </>
     )
 }
 
