@@ -3,6 +3,9 @@ import React from 'react';
 import CardInstance from "../components/Card/CardInstance";
 import './firebase';
 
+import { v4 as uuidv4 } from 'uuid';
+
+var uuid = require('uuid');
 
 //carregar dados com useEffect?
 

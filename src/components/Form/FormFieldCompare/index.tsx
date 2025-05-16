@@ -16,10 +16,10 @@ export default function FormFieldCompare(props: Props) {
         "greater than or equal to",
         "not equal to"
     ]
-    let comparableID = `${props.id}_Comparable`;
-    let operatorID = `${props.id}_Operator`;
-    let comparableName = `${props.name}_Comparable`;
-    let operatorName = `${props.name}_Operator`;
+    const comparableID = `${props.id}_Comparable`;
+    const operatorID = `${props.id}_Operator`;
+    const comparableName = `${props.name}_Comparable`;
+    const operatorName = `${props.name}_Operator`;
 
     return (
         <div>

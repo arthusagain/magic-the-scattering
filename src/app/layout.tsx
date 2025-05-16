@@ -28,12 +28,12 @@ export default function RootLayout({
       <body
         className={`font-arial antialiased`}
       >
+        <Banner />
         <StrictMode>
           <div className="main-container">
             {children}
           </div>
         </StrictMode>
-        <Banner />
 
       </body>
     </html>

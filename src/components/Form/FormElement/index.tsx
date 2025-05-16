@@ -8,7 +8,7 @@ interface Props {
     id: string,
     name: string,
     field: IFormField,
-    formId: number
+    updateForm: (idx: number, newValue: string) => void
 }
 
 export default function FormElement(props: Props) {

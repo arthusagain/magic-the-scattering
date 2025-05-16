@@ -2,6 +2,7 @@ import React from "react";
 import style from "./form.module.scss"
 import { IFormField } from "@/types/formField";
 import FormElement from "./FormElement";
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     fields: IFormField[],
@@ -15,6 +16,12 @@ export default function Form({ fields, submit, submitText }: Props) {
         throw new Error(typeof fields);
     }
 
+    const formAnswers = new Array(fields.length).fill('');
+    let submitedValues = '';
+
+    const updateField = (idx: number, newValue: string) => {
+        formAnswers[idx] = newValue;
+    }
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         /*const values = fields.reduce((acc: { [key: string]: string }, field) => {
@@ -30,16 +37,19 @@ export default function Form({ fields, submit, submitText }: Props) {
                 return [field.label, ''];
             }
         }));
-        submit(values);
+        submitedValues = formAnswers.toString();
+        //submit(values);
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
+        <form onSubmit={handleSubmit} className={style.formContainer} >
+            <ul className={style.formContentList}>
                 {fields.map(field =>
-                    <FormElement id={field.label} name={field.label} key={field.label} field={field} />)}
+
+                    <FormElement id={uuidv4()} name={field.label} key={field.label} field={field} updateForm={updateField}/>)}
             </ul>
-            <button type="submit" >{submitText}</button>
+            <button type="submit" className={style.submitButton}>{submitText}</button>
         </form>
+
     )
 }

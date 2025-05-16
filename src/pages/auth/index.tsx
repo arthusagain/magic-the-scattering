@@ -40,9 +40,9 @@ const Auth = () => {
                 return
                 // ..
             });
-
     }
 
+    
     return (
         <div className={style.authContainer}>
             <div className={style.signInContainer}>
