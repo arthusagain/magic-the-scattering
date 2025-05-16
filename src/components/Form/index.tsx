@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import style from "./form.module.scss"
 import { IFormField } from "@/types/formField";
@@ -17,11 +18,13 @@ export default function Form({ fields, submit, submitText }: Props) {
     }
 
     const formAnswers = new Array(fields.length).fill('');
-    let submitedValues = '';
 
     const updateField = (idx: number, newValue: string) => {
         formAnswers[idx] = newValue;
+        //alert(formAnswers)
+        console.log(formAnswers);
     }
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         /*const values = fields.reduce((acc: { [key: string]: string }, field) => {
@@ -29,24 +32,24 @@ export default function Form({ fields, submit, submitText }: Props) {
             return acc;
         }, {});
         submit(values);*/
-        const values = Object.fromEntries(fields.map((field) => {
+        /*const values = Object.fromEntries(formAnswers.map((field) => {
             const element = document.getElementById(field.label);
             if (element instanceof HTMLInputElement) {
                 return [field.label, element.value];
             } else {
                 return [field.label, ''];
             }
-        }));
-        submitedValues = formAnswers.toString();
-        //submit(values);
+        }));*/
+        //alert(formAnswers);
+        console.log(formAnswers);
+        submit(formAnswers);
     };
 
     return (
         <form onSubmit={handleSubmit} className={style.formContainer} >
             <ul className={style.formContentList}>
-                {fields.map(field =>
-
-                    <FormElement id={uuidv4()} name={field.label} key={field.label} field={field} updateForm={updateField}/>)}
+                {fields.map((field,index) =>
+                    <FormElement id={uuidv4()} name={field.label} elementIndex={index} field={field} updateForm={updateField}/>)}
             </ul>
             <button type="submit" className={style.submitButton}>{submitText}</button>
         </form>

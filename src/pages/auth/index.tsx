@@ -3,7 +3,7 @@ import Form from "../../components/Form";
 import FormTemplates from "../../components/Form/FormTemplates.json";
 import { IFormField } from "@/types/formField";
 import style from "./auth.module.scss"
-import { createUserWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../app/firebase';
 
 const authTemplateData = FormTemplates.login;
@@ -18,8 +18,13 @@ const Auth = () => {
         //learn firebase auth   
     }
 
-    const handleRegister = (values: any) => {
-        const { email, password, "confirm password": confirmPassword } = values;
+    const handleRegister = (values: Array<string>) => {
+        const email = values[0];
+        const password = values[1];
+        const confirmPassword = values[2];
+        alert(`Email: ${email}
+                Password: ${password}
+                Confirm Password: ${password}`);
         if (password !== confirmPassword) {
             alert("Passwords do not match");
             return;
@@ -29,20 +34,20 @@ const Auth = () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
-                alert ("Signed Up");
+                alert("Signed Up");
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                alert (`Error ${errorCode}: ${errorMessage}
+                alert(`Error ${errorCode}: ${errorMessage}
                     Email: ${email} Password: ${password}`);
                 return
                 // ..
             });
     }
 
-    
+
     return (
         <div className={style.authContainer}>
             <div className={style.signInContainer}>
