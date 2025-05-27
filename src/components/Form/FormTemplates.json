@@ -22,7 +22,7 @@
             },
             {
                 "type": "text",
-                "label": "Password",    
+                "label": "Password",
                 "context": "password"
             },
             {
@@ -36,18 +36,52 @@
         "fields": [
             {
                 "type": "text",
-                "label": "Name",
+                "label": "Titulo",
                 "context": "text"
             },
             {
                 "type": "text",
-                "label": "Description",
+                "label": "Descrição",
                 "context": "text"
             },
             {
-                "type": "file",
-                "label": "Image",
-                "context": ""
+                "type": "symbol",
+                "label": "Mana Cost",
+                "context": [
+                    "W",
+                    "U",
+                    "B",
+                    "R",
+                    "G"
+                ]
+            },
+            {
+                "type": "select",
+                "label": "Type Line",
+                "context": [
+                    "Land",
+                    "Creature",
+                    "Artifact",
+                    "Enchantment",
+                    "Sorcery",
+                    "Instant",
+                    "Aura"
+                ]
+            },
+            {
+                "type": "text",
+                "label": "Subtypes",
+                "context": "subtype"
+            },
+            {
+                "type": "text",
+                "label": "Power",
+                "context": "number"
+            },
+            {
+                "type": "text",
+                "label": "Toughness",
+                "context": "number"
             }
         ]
     }

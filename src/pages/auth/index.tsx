@@ -3,7 +3,7 @@ import Form from "../../components/Form";
 import FormTemplates from "../../components/Form/FormTemplates.json";
 import { IFormField } from "@/types/formField";
 import style from "./auth.module.scss"
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../app/firebase';
 
 const authTemplateData = FormTemplates.login;
@@ -14,11 +14,24 @@ const registerTemplate = registerTemplateData.fields as IFormField[];
 
 const Auth = () => {
 
-    const handleLogin = () => {
-        //learn firebase auth   
+    const handleLogin = (values: string[]) => {
+        const email = values[0];
+        const password = values[1];
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                alert("Signed In");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(`Error ${errorCode}: ${errorMessage}
+                    Email: ${email} Password: ${password}`);
+                return
+            });
     }
 
-    const handleRegister = (values: Array<string>) => {
+    const handleRegister = (values: string[]) => {
         const email = values[0];
         const password = values[1];
         const confirmPassword = values[2];
@@ -29,13 +42,10 @@ const Auth = () => {
             alert("Passwords do not match");
             return;
         }
-        //const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed up 
                 const user = userCredential.user;
                 alert("Signed Up");
-                // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -43,7 +53,6 @@ const Auth = () => {
                 alert(`Error ${errorCode}: ${errorMessage}
                     Email: ${email} Password: ${password}`);
                 return
-                // ..
             });
     }
 

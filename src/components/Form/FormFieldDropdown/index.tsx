@@ -5,6 +5,7 @@ interface Props {
 }
 
 export default function FormFieldDropdown( props: Props ) {
+    console.log(props.options)
     return (
         <div>
             <select>

@@ -2,7 +2,6 @@ import { IFormField } from "@/types/formField";
 import React from "react";
 import Compare from "../FormFieldCompare";
 import Dropdown from "../FormFieldDropdown";
-import { useRef } from 'react';
 
 interface Props {
     id: string,
@@ -17,20 +16,19 @@ export default function FormElement(props: Props) {
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         //alert(props.key);
-        console.log(`${props.elementIndex} = ${event.target.value}`);
         props.updateForm(props.elementIndex, event.target.value);
     }
 
     let inputType;
     switch (props.field.type) {
         case 'text':
-            inputType = <input id={props.id} name={props.name} type={props.field.context} onChange={handleChange} />
+            inputType = <input id={props.id} name={props.name} type={props.field.context.toString()} onChange={handleChange} />
             break;
         case 'select':
             inputType = <Dropdown id={props.id} name={props.name} options={props.field.context} />
             break;
         case 'checkbox':
-            inputType = <input type="checkbox" />
+            inputType = <input type="checkbox" id={props.id} name={props.name} onChange={handleChange}/>
             break;
         case 'compare':
             inputType = <Compare id={props.id} name={props.name} comparables={props.field.context} />
