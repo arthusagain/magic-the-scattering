@@ -37,7 +37,6 @@ export default function Form({ fields, submit, submitText }: Props) {
                     <FormElement id={useId()} name={field.label} elementIndex={index} field={field} updateForm={updateField} />)}
             </ul>
             <button type="submit" className={style.submitButton}>{submitText}</button>
-
         </form>
     )
 }
