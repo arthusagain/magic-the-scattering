@@ -1,9 +1,10 @@
+import { IContextArray } from "@/types/formField";
 import Dropdown from "../FormFieldDropdown"
 
 interface Props {
     id: string,
     name: string,
-    comparables: string[]
+    comparables: IContextArray
 }
 
 export default function FormFieldCompare(props: Props) {

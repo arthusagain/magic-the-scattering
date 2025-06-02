@@ -34,7 +34,7 @@ export default function Form({ fields, submit, submitText }: Props) {
         <form onSubmit={handleSubmit} className={style.formContainer} >
             <ul className={style.formContentList}>
                 {fields.map((field, index) =>
-                    <FormElement id={useId()} name={field.label} elementIndex={index} field={field} updateForm={updateField} />)}
+                    <FormElement id={useId()} key={index} name={field.label} elementIndex={index} field={field} updateForm={updateField} />)}
             </ul>
             <button type="submit" className={style.submitButton}>{submitText}</button>
         </form>

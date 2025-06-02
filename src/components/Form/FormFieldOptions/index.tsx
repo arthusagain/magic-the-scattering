@@ -1,16 +1,18 @@
 import React from 'react'
 import CompositeLabel from '../CompositeLabel'
-import { ILabel } from '@/types/formField'
+import { IContextDictionary, ILabel } from '@/types/formField'
+import { dictToILabels } from '@/types/formField'
 
 interface Props {
     id: string,
     name: string,
-    labels: ILabel[]
+    labelsDict: IContextDictionary
 }
 
 export default function FormFieldOptions(props: Props) {
+    let labels = dictToILabels(props.labelsDict.infoDictionary);
     return (
-        <>{props.labels.map((label, index) => (
+        <>{labels.map((label, index) => (
             <div key={index}>
                 <input type="checkbox" />
                 <CompositeLabel {...label} />
