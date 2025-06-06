@@ -28,7 +28,6 @@ export default function FormElement(props: Props) {
     function handleTextInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         //alert(props.key);
         props.updateForm(props.elementIndex, event.target.value);
-        
     }
 
     let inputType = <></>;
