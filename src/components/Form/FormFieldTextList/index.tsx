@@ -6,7 +6,8 @@ import { IContextDictionary } from "@/types/formField";
 interface Props {
     id: string,
     name: string,
-    context: IContextDictionary
+    context: IContextDictionary,
+    updateState: (newState: string) => void
 }
 
 export default function FormFieldTextList(props: Props) {
@@ -33,6 +34,10 @@ export default function FormFieldTextList(props: Props) {
     ) : (
         <FormFieldDropdown id={props.id} name={props.name} context={props.context} />
     );
+
+    function handleChange(){
+        
+    }
 
     return (
         <>

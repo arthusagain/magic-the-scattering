@@ -4,12 +4,16 @@
             {
                 "type": "text",
                 "label": "Email",
-                "context": "email"
+                "context": {
+                    "info": "email"
+                }
             },
             {
                 "type": "text",
                 "label": "Password",
-                "context": "password"
+                "context": {
+                    "info": "password"
+                }
             }
         ]
     },
@@ -18,17 +22,23 @@
             {
                 "type": "text",
                 "label": "Email",
-                "context": "email"
+                "context": {
+                    "info": "email"
+                }
             },
             {
                 "type": "text",
                 "label": "Password",
-                "context": "password"
+                "context": {
+                    "info": "password"
+                }
             },
             {
                 "type": "text",
                 "label": "Confirm Password",
-                "context": "password"
+                "context": {
+                    "info": "password"
+                }
             }
         ]
     },
@@ -37,12 +47,16 @@
             {
                 "type": "text",
                 "label": "Titulo",
-                "context": "text"
+                "context": {
+                    "info": "text"
+                }
             },
             {
                 "type": "symbol",
                 "label": "Descrição",
-                "context": "text",
+                "context": {
+                    "info": "Select"
+                },
                 "dependency": {
                     "fieldIndex": 3,
                     "type": "notContains",
@@ -52,7 +66,67 @@
             {
                 "type": "text",
                 "label": "Descrição",
-                "context": "text",
+                "context": {
+                    "info": "text",
+                    "infoDictionary": {
+                        "Tap": "{T}",
+                        "Untap": "{Q}",
+                        "0": "{0}",
+                        "1": "{1}",
+                        "2": "{2}",
+                        "3": "{3}",
+                        "4": "{4}",
+                        "5": "{5}",
+                        "6": "{6}",
+                        "7": "{7}",
+                        "8": "{8}",
+                        "9": "{9}",
+                        "10": "{10}",
+                        "11": "{11}",
+                        "12": "{12}",
+                        "13": "{13}",
+                        "14": "{14}",
+                        "15": "{15}",
+                        "16": "{16}",
+                        "17": "{17}",
+                        "18": "{18}",
+                        "19": "{19}",
+                        "20": "{20}",
+                        "X": "{X}",
+                        "Colorless": "{C}",
+                        "Snow": "{S}",
+                        "White": "{W}",
+                        "Blue": "{U}",
+                        "Black": "{B}",
+                        "Red": "{R}",
+                        "Green": "{G}",
+                        "White or 2 Life": "{W/P}",
+                        "Blue or 2 Life": "{U/P}",
+                        "Black or 2 Life": "{B/P}",
+                        "Red or 2 Life": "{R/P}",
+                        "Green or 2 Life": "{G/P}",
+                        "White or Blue": "{W/U}",
+                        "White or Black": "{W/B}",
+                        "White or Red": "{W/R}",
+                        "White or Green": "{W/G}",
+                        "Blue or Black": "{U/B}",
+                        "Blue or Green": "{U/G}",
+                        "Blue or Red": "{U/R}",
+                        "Black or Red": "{B/R}",
+                        "Black or Green": "{B/G}",
+                        "Red or Green": "{R/G}",
+                        "White, Blue or 2 life": "{W/U/P}",
+                        "White, Black or 2 life": "{W/B/P}",
+                        "White, Red or 2 life": "{W/R/P}",
+                        "White, Green or 2 life": "{W/G/P}",
+                        "Blue, Black or 2 life": "{U/B/P}",
+                        "Blue, Green or 2 life": "{U/G/P}",
+                        "Blue, Red or 2 life": "{U/R/P}",
+                        "Black, Red or 2 life": "{B/R/P}",
+                        "Black, Green or 2 life": "{B/G/P}",
+                        "Red, Green or 2 life": "{R/G/P}"
+                    }
+                },
                 "dependency": {
                     "fieldIndex": 3,
                     "type": "contains",
@@ -142,12 +216,16 @@
             {
                 "type": "text",
                 "label": "Subtypes",
-                "context": "subtype"
+                "context": {
+                    "info": "text"
+                }
             },
             {
                 "type": "text",
                 "label": "Power",
-                "context": "number",
+                "context": {
+                    "info": "number"
+                },
                 "dependency": {
                     "fieldIndex": 3,
                     "type": "Contains",
@@ -157,7 +235,9 @@
             {
                 "type": "text",
                 "label": "Toughness",
-                "context": "number",
+                "context": {
+                    "info": "number"
+                },
                 "dependency": {
                     "fieldIndex": 3,
                     "type": "Contains",

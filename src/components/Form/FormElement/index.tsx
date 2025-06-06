@@ -1,4 +1,5 @@
 import { IContextArray, IContextDictionary, IFormField } from "@/types/formField";
+import { arrayAsDictionary } from "@/types/formField";
 import React from "react";
 import FormFieldCompare from "../FormFieldCompare";
 import FormFieldDropdown from "../FormFieldDropdown";
@@ -18,74 +19,74 @@ interface Props {
 
 export default function FormElement(props: Props) {
 
-    function arrayAsDictionary(array: string[]) {
-        const dict: Record<string, string> = {};
-        for (let i = 0; i < array.length; i++) {
-            dict[array[i]] = array[i];
-        }
-        return dict;
+
+    function handleFormChange(newValue: string) {
+        //alert(props.key);
+        props.updateForm(props.elementIndex, newValue);
     }
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    function handleTextInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         //alert(props.key);
         props.updateForm(props.elementIndex, event.target.value);
+        
     }
 
     let inputType = <></>;
+    console.log(props.field.context);
     switch (props.field.type) {
         case 'text':
-            inputType = <input id={props.id} name={props.name} type={props.field.context.info} onChange={handleChange} />
+            inputType = <input id={props.id} name={props.name} type={props.field.context.info} onChange={handleTextInputChange} />
             break;
         case 'select':
-            if ('infoDictionary' in props.field.context) {
-                inputType = <FormFieldDropdown id={props.id} name={props.name} context={props.field.context as IContextDictionary} />
+            if ( 'infoDictionary' in props.field.context) {
+                inputType = <FormFieldDropdown id={props.id} name={props.name} updateState={handleFormChange}  context={props.field.context as IContextDictionary} />
             } else if ('infoList' in props.field.context) {
-                inputType = <FormFieldDropdown id={props.id} name={props.name} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary((props.field.context as IContextArray).infoList) }} />
+                inputType = <FormFieldDropdown id={props.id} name={props.name} updateState={handleFormChange} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary((props.field.context as IContextArray).infoList) }} />
             } else {
-                inputType = <FormFieldDropdown id={props.id} name={props.name} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary([]) }} />
+                inputType = <FormFieldDropdown id={props.id} name={props.name} updateState={handleFormChange} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary([]) }} />
             }
             break;
         case 'checkbox':
             if ('infoDictionary' in props.field.context) {
-                inputType = <FormFieldOptions id={props.id} name={props.name} labelsDict={props.field.context as IContextDictionary} />
+                inputType = <FormFieldOptions id={props.id} name={props.name} updateState={handleFormChange} labelsDict={props.field.context as IContextDictionary} />
             } else {
-                inputType = <FormFieldOptions id={props.id} name={props.name} labelsDict={{ info: props.field.context.info, infoDictionary: { [props.field.context.info]: props.field.context.info } }} />
+                inputType = <FormFieldOptions id={props.id} name={props.name} updateState={handleFormChange} labelsDict={{ info: props.field.context.info, infoDictionary: { [props.field.context.info]: props.field.context.info } }} />
             }
             break;
         case 'compare':
             if ('infoList' in props.field.context) {
-                inputType = <FormFieldCompare id={props.id} name={props.name} comparables={props.field.context as IContextArray} />
+                inputType = <FormFieldCompare id={props.id} name={props.name}  updateState={handleFormChange} comparables={props.field.context as IContextArray} />
             }
             else {
-                inputType = <FormFieldCompare id={props.id} name={props.name} comparables={{ info: props.field.context.info, infoList: [] }} />
+                inputType = <FormFieldCompare id={props.id} name={props.name} updateState={handleFormChange} comparables={{ info: props.field.context.info, infoList: [] }} />
             }
             break;
         case 'file':
             if ('infoList' in props.field.context) {
-                inputType = <FormFileUpload id={props.id} name={props.name} accept={(props.field.context as IContextArray).infoList} />
+                inputType = <FormFileUpload id={props.id} name={props.name} updateState={handleFormChange} accept={(props.field.context as IContextArray).infoList} />
             } else {
-                inputType = <FormFileUpload id={props.id} name={props.name} accept={[props.field.context.info]} />
+                inputType = <FormFileUpload id={props.id} name={props.name} updateState={handleFormChange} accept={[props.field.context.info]} />
 
             }
             break;
         case 'symbol':
             if ('infoDictionary' in props.field.context) {
-                inputType = <FormFieldSymbol id={props.id} name={props.name} symbolDictionary={props.field.context as IContextDictionary} />
+                inputType = <FormFieldSymbol id={props.id} name={props.name} updateState={handleFormChange} symbolDictionary={props.field.context as IContextDictionary} />
             }
             else if ('infoList' in props.field.context) {
-                inputType = <FormFieldSymbol id={props.id} name={props.name} symbolDictionary={{ info: props.field.context.info, infoDictionary: arrayAsDictionary((props.field.context as IContextArray).infoList) }} />
+                inputType = <FormFieldSymbol id={props.id} name={props.name} updateState={handleFormChange} symbolDictionary={{ info: props.field.context.info, infoDictionary: arrayAsDictionary((props.field.context as IContextArray).infoList) }} />
             }
             else {
-                inputType = <FormFieldSymbol id={props.id} name={props.name} symbolDictionary={{ info: props.field.context.info, infoDictionary: arrayAsDictionary([]) }} />
+                inputType = <FormFieldSymbol id={props.id} name={props.name} updateState={handleFormChange} symbolDictionary={{ info: props.field.context.info, infoDictionary: arrayAsDictionary([]) }} />
             }
             break;
         case 'textList':
             if ('infoDictionary' in props.field.context) {
-                inputType = <FormFieldTextList id={props.id} name={props.name} context={props.field.context as IContextDictionary} />
+                inputType = <FormFieldTextList id={props.id} name={props.name} updateState={handleFormChange} context={props.field.context as IContextDictionary} />
             } else if ('infoList' in props.field.context) {
-                inputType = <FormFieldTextList id={props.id} name={props.name} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary((props.field.context as IContextArray).infoList) }} />
+                inputType = <FormFieldTextList id={props.id} name={props.name} updateState={handleFormChange} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary((props.field.context as IContextArray).infoList) }} />
             } else {
-                inputType = <FormFieldTextList id={props.id} name={props.name} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary([]) }} />
+                inputType = <FormFieldTextList id={props.id} name={props.name} updateState={handleFormChange} context={{ info: props.field.context.info, infoDictionary: arrayAsDictionary([]) }} />
             }
             break;
         default:

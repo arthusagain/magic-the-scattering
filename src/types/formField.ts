@@ -72,3 +72,10 @@ export function dictToILabels(dict: Record<string, string>){
     }
     return labels;
 }
+export function arrayAsDictionary(array: string[]) {
+        const dict: Record<string, string> = {};
+        for (let i = 0; i < array.length; i++) {
+            dict[array[i]] = array[i];
+        }
+        return dict;
+    }
